@@ -1,0 +1,90 @@
+/*////////////////////////////////////
+//Styling of Body
+///////////////////////////////////*/
+
+body{
+	background-image: url(img/background.png);
+	background-size: 200px 200px;
+}
+
+/*////////////////////////////////////
+//Styling of Game Header
+///////////////////////////////////*/
+
+#level-image{
+	display: block;
+	width: 40px;
+	margin-left:10%;
+}
+
+#progress-bar{
+	width:20%;
+	height: 40px;
+	background-color: green;
+	border:1px solid black;
+	border-radius: 20%;
+}
+
+#level-text{
+	margin: 5px;
+	width: 200px;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size:20px;
+	color: black;
+}
+
+#lives-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	margin-top: 10px;
+}
+
+#lives-title{
+	text-align: left;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size:45px;
+}
+
+.lives-image{
+	display:inline-block;
+	width: 70px;
+	height: 70px;
+}
+
+/*////////////////////////////////////
+//Styling of Game Area
+///////////////////////////////////*/
+
+.main-game-area{
+	padding-top: 100px;
+	border:1px solid black;
+	height:450px;
+	text-align: center;
+}
+
+/*////////////////////////////////////
+//Styling of Level 1
+///////////////////////////////////*/
+
+#game-title {
+	font-family: 'Sniglet', cursive;
+	font-weight: 800;
+	font-size:70px;
+}
+
+#start-game{
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size:30px;
+}
+
+
+/*////////////////////////////////////
+//Styling of Footer
+///////////////////////////////////*/
+
+.disclaimer{
+	color: grey;
+	text-align: center;
+	margin: 0;
+}
