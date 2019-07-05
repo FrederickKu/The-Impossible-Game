@@ -14,11 +14,11 @@ body{
 #level-image{
 	display: block;
 	width: 40px;
-	margin-left:10%;
+	margin-left:5%;
 }
 
 #progress-bar{
-	width:20%;
+	width:10%;
 	height: 40px;
 	background-color: green;
 	border:1px solid black;
@@ -56,7 +56,7 @@ body{
 //Styling of Game Area
 ///////////////////////////////////*/
 
-.main-game-area{
+#main-game-area{
 	padding-top: 100px;
 	border:1px solid black;
 	height:450px;
@@ -67,6 +67,12 @@ body{
 //Styling of Level 1
 ///////////////////////////////////*/
 
+#level1 {
+/*	display: none;*/
+	margin: 0;
+	padding: 0;
+}
+
 #game-title {
 	font-family: 'Sniglet', cursive;
 	font-weight: 800;
@@ -76,6 +82,66 @@ body{
 #start-game{
 	font-family: 'Gloria Hallelujah', cursive;
 	font-size:30px;
+}
+
+/*////////////////////////////////////
+//Styling of Level 2
+///////////////////////////////////*/
+
+#level2 {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#level2-text {
+	font-family: 'Bubblegum Sans', cursive;
+	font-size: 70px;
+}
+
+#level2-game {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#level2-game-text {
+	display: inline-block;
+	font-size: 50px;
+	font-size: bold;
+}
+
+#level2-fake {
+	display: inline-block;
+	border:none;
+	width: 100px;
+	height: 50px;
+	margin: 20px 0;
+	border-bottom: 2px solid black;
+}
+
+/*////////////////////////////////////
+//Styling of Level 3
+///////////////////////////////////*/
+
+#level3 {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#level3-text {
+	font-size: 70px;
+	font-family: 'Kaushan Script', cursive;
+}
+
+#level3-answer {
+	margin-top: 30px;
+	width: 300px;
+	height: 50px;
+	border: none;
+	border-bottom: 2px solid black;
+
 }
 
 
