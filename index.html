@@ -2,14 +2,20 @@
 <html>
 <head>
     <title>The Impossible Game</title>
+    <!-- Standard Meta  -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans|Gloria+Hallelujah|Kaushan+Script|Sniglet:400,800&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans|Gloria+Hallelujah|Kaushan+Script|Righteous|Sniglet:400,800&display=swap" rel="stylesheet">
+
+    <!-- User Stylesheet -->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body class="container">
     <header class="row">
         <div class="col-4 progress-container">
@@ -33,7 +39,7 @@
         <!--  Level 1 Game -->
             <div id="level1">
                 <p id="game-title"> The Impossible Game</p>
-                <p id="start-game"> Press <span id="level1-fake1">Start</span> to <span id="level1">start</span> the game! </p>
+                <p id="start-game"> Press <span id="level1-fake1">Start</span> to <span id="level1-true">start</span> the game! </p>
                 <button class="btn btn-outline-dark btn-lg" id="level1-fake2">Start</button>
             </div>
 
@@ -52,11 +58,32 @@
                 <input id='level3-answer'>
             </div>
 
+        <!--  Level 4 Game -->
+            <div id="level4">
+                <p id="level4-text">Let's go up a notch! <br> Pay very close attention!</p>
+                <p id="level4-text2"> Which way to go forward? </p>
+
+                <div id='level4-board'>
+                    <button class="btn btn-default level4-box" id='0'></button>
+                    <button class="btn btn-default level4-box" id='1'></button>
+                    <button class="btn btn-default level4-box" id='2'></button>
+                    <button class="btn btn-default level4-box" id='3'></button>
+                    <p id ='level4-board-text'>What belongs to you, but other people use it more than you?</p>
+                    <button class="btn btn-default level4-box" id='4'></button>
+                    <button class="btn btn-default level4-box" id='5'></button>
+                    <button class="btn btn-default level4-box" id='6'></button>
+                    <button class="btn btn-default level4-box" id='7'></button>
+                </div>
+
+            </div>
+
         </div>
     </main>
+
     <footer class="row">
         <p class="col-12 disclaimer">Disclaimer: This game will not work on mobile phones or tablets!</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

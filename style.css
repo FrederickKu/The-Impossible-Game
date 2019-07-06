@@ -57,7 +57,7 @@ body{
 ///////////////////////////////////*/
 
 #main-game-area{
-	padding-top: 100px;
+	padding-top: 100px;  /* 10px for level 4*/
 	border:1px solid black;
 	height:450px;
 	text-align: center;
@@ -141,9 +141,55 @@ body{
 	height: 50px;
 	border: none;
 	border-bottom: 2px solid black;
-
 }
 
+/*////////////////////////////////////
+//Styling of Level 4
+///////////////////////////////////*/
+
+#level4 {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#level4-text {
+	font-family: 'Righteous', cursive;
+	font-size: 30px;
+	margin-bottom: 5px;
+}
+
+#level4-text2 {
+	font-family: 'Righteous', cursive;
+	font-size: 30px;
+	display: none;
+}
+
+#level4-board {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	border: 1px solid black;
+	width: 30%;
+	margin: 0 auto;
+}
+
+.level4-box{
+	width: 100px;
+	height: 100px;
+	margin:5px;
+	border: 1px solid black;
+	background-color: #B4B8C5;
+	border-radius: 10px;
+}
+
+#level4-board-text{
+	font-family: 'Righteous', cursive;
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+	font-size: 14px;
+}
 
 /*////////////////////////////////////
 //Styling of Footer
