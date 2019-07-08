@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Google Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans|Gloria+Hallelujah|Kaushan+Script|Righteous|Sniglet:400,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Bahianita|Baloo|Barriecito|Bubblegum+Sans|Courgette|Gloria+Hallelujah|Kaushan+Script|Righteous|Sniglet:400,800&display=swap" rel="stylesheet">
+
 
     <!-- User Stylesheet -->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body class="container">
-    <header class="row">
+    <header class="row" id='header'>
         <div class="col-4 progress-container">
             <img src="img/dog.png" id="level-image">
             <div id="progress-bar">
@@ -57,30 +58,102 @@
                 <p id="level3-text"> !drawrof og ot sdrawkcab epyT </p>
                 <input id='level3-answer'>
             </div>
-
         <!--  Level 4 Game -->
             <div id="level4">
-                <p id="level4-text">Let's go up a notch! <br> Pay very close attention!</p>
-                <p id="level4-text2"> Which way to go forward? </p>
-
-                <div id='level4-board'>
-                    <button class="btn btn-default level4-box" id='0'></button>
-                    <button class="btn btn-default level4-box" id='1'></button>
-                    <button class="btn btn-default level4-box" id='2'></button>
-                    <button class="btn btn-default level4-box" id='3'></button>
-                    <p id ='level4-board-text'>What belongs to you, but other people use it more than you?</p>
-                    <button class="btn btn-default level4-box" id='4'></button>
-                    <button class="btn btn-default level4-box" id='5'></button>
-                    <button class="btn btn-default level4-box" id='6'></button>
-                    <button class="btn btn-default level4-box" id='7'></button>
+                <p id='level4-text'>Find the smallest dot<span id="level4-fake">!</span></p>
+                <div class="level4-dot-container">
+                    <div id="dot1"></div>
                 </div>
+                <div class="level4-dot-container">
+                    <div id="dot2"></div>
+                </div>
+            </div>
 
+        <!--  Level 5 Game -->
+            <div id="level5">
+                <p id="level5-text">Catch the cat!</p>
+                <div id="level5-container">
+                    <p id='cat'>🐱</p>
+                </div>
+            </div>
+
+        <!--  Level 6 Game -->
+            <div id="level6">
+                <p id="level6-text1">Click on the numbers in ascending order</p>
+                <p id="level6-text2">Click on the numbers in descending order</p>
+                <div id="level6-game-container">
+                    <p class='level6-icon icon1' id='10'>-54</p>
+                    <p class='level6-icon icon2' id='11'>-13</p>
+                    <p class='level6-icon icon3' id='12'>-5</p>
+                    <p class='level6-icon icon4' id='13'>-2</p>
+                    <p class='level6-icon icon5' id='14'>0</p>
+                    <p class='level6-icon icon6' id='15'>4</p>
+                    <p class='level6-icon icon7' id='16'>13</p>
+                    <p class='level6-icon icon8' id='17'>14</p>
+                    <p class='level6-icon icon9' id='18'>23</p>
+                    <p class='level6-icon icon10' id='19'>75</p>
+                </div>
+            </div>
+
+        <!-- Level 7 Game -->
+            <div id="level7">
+                <p id="level7-text">Let's go up a notch! <br> Pay very close attention!</p>
+                <p id="level7-text2"> Which way to go forward? </p>
+
+                <div id='level7-board'>
+                    <button class="btn btn-default level7-box" id='0'></button>
+                    <button class="btn btn-default level7-box" id='1'></button>
+                    <button class="btn btn-default level7-box" id='2'></button>
+                    <button class="btn btn-default level7-box" id='3'></button>
+                    <p id ='level7-board-text'>What belongs to you, but other people use it more than you?</p>
+                    <button class="btn btn-default level7-box" id='4'></button>
+                    <button class="btn btn-default level7-box" id='5'></button>
+                    <button class="btn btn-default level7-box" id='6'></button>
+                    <button class="btn btn-default level7-box" id='7'></button>
+                </div>
+            </div>
+
+        <!--  Level 8 Game -->
+            <div id="level8">
+                <p id="level8-text">What level is this?</p>
+                <div id="level8-board">
+                    <span class="level8-fake">0000000000000</span><span class="level8-true" id ='20'>0</span><span class="level8-fake">00000000000000000000000000000000000000000000000000000000000<br>000000000000000000000000000000000000000000</span><span class="level8-true" id ='21'>0</span><span class="level8-fake">000000000000000000000000000000<br>0000000000000000000000000000000</span><span class="level8-true" id ='22'>0</span><span class="level8-fake">00000000000000000000000000000000000000000<br>00000000000000000000</span><span class="level8-true 3" id ='23'>0</span><span class="level8-fake">0000000000000000000000000000000000000000000000000000<br>00000000000000000000000000000000000000000000000000000000000000000000</span><span class="level8-true" id ='24'>0</span><span class="level8-fake">0000<br>00000000000000000000000000000000000000000000000000000000000000</span><span class="level8-true" id ='25'>0</span><span class="level8-fake">0000000000<br>000</span><span class="level8-true" id ='26'>0</span><span class="level8-fake">000000000000000000000000000000000000000000000000000000000000000000000<br>000000000000000000000000000000000000000000</span><span class="level8-true" id ='27'>0</span><span class="level8-fake">000000000000000000000000000000<br>000000000000000000000000000000</span><span class="level8-true" id ='28'>0</span><span class="level8-fake">000000000000000000000000000000000000000000<br>
+                    </span>
+                </div>
+            </div>
+
+        <!--  Level 9 Game -->
+            <div id="level9">
+                <p id="level9-text">Let's take a break before the final level.<br> You have exactly 10 seconds</p>
+                <div id = 'clock'>
+                    <p id='clock-text'>00:00</p>
+                </div>
+                <button class = "btn btn-secondary clock-button" id = 'start-clock'>Start</button>
+                <button class = "btn btn-secondary clock-button" id = 'stop-clock'> Stop </button>
+            </div>
+
+        <!--  Level 10 Game -->
+            <div id="level10">
+                <p id="level10-text">Final Level!<br>Remember the Riddle?<br>
+                What is the answer.</p>
+                <p id = 'level10-answer-text'>↓Answer↓</p>
+                <input id='level10-answer'>
+            </div>
+
+            <div id="gamewon">
+                <p id="gamewon-text">You Have Won the game! 😔</p>
+                <button class ='btn btn-dark btn-lg restart-button' id='restart-game1'>Restart game!</button>
             </div>
 
         </div>
     </main>
 
-    <footer class="row">
+    <div id='gamelose'>
+        <p id='gamelose-text'> Too Bad! 😛 you Lose!</p>
+        <button class ='btn btn-light btn-lg restart-button' id='restart-game2'>Restart game!</button>
+    </div>
+
+    <footer class="row" id='footer'>
         <p class="col-12 disclaimer">Disclaimer: This game will not work on mobile phones or tablets!</p>
     </footer>
 

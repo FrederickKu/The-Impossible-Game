@@ -10,10 +10,9 @@ body{
 /*////////////////////////////////////
 //Styling of Game Header
 ///////////////////////////////////*/
-
 #level-image{
 	display: block;
-	width: 40px;
+	width: 30px;
 	margin-left:5%;
 }
 
@@ -57,7 +56,7 @@ body{
 ///////////////////////////////////*/
 
 #main-game-area{
-	padding-top: 100px;  /* 10px for level 4*/
+	padding-top: 100px;  /*50px for level 6, 10px for level 7, 50px for level 8, 30px for level 9*/
 	border:1px solid black;
 	height:450px;
 	text-align: center;
@@ -154,18 +153,163 @@ body{
 }
 
 #level4-text {
+	font-family: 'Bubblegum Sans', cursive;
+	font-size: 70px;
+	margin: 0;
+}
+
+.level4-dot-container{
+	display: inline-block;
+	margin: 20px 50px;
+	height: 200px;
+	width: 200px;
+}
+
+#dot1 {
+	border: 1px solid #3D3B30;
+	border-radius: 50%;
+	background-color: #E7E247;
+	width: 190px;
+	height: 190px;
+	margin: 0 auto;
+}
+
+#dot2 {
+	border: 1px solid #3D3B30;
+	border-radius: 50%;
+	background-color: #5C80BC;
+	width: 100px;
+	height: 100px;
+	margin: 40px auto;
+}
+
+/*////////////////////////////////////
+//Styling of Level 5
+///////////////////////////////////*/
+
+#level5 {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#level5-text {
+	font-family: 'Amatic SC', cursive;
+	font-weight:700;
+	font-size:70px;
+}
+
+#cat {
+	position: absolute;
+	display: inline-block;
+	top: 200px;
+	left: 550px;
+	font-size: 30px;
+	margin: 0 10px;
+}
+
+/*////////////////////////////////////
+//Styling of Level 5
+///////////////////////////////////*/
+
+#level6 {
+	display: none;
+	margin: 0;
+	padding: 0;
+	font-family: 'Baloo', cursive;
+}
+
+#level6-text1 {
+	display: initial;
+	font-weight: bold;
+	font-size: 50px;
+}
+
+#level6-text2{
+	display: none;
+	font-weight: bold;
+	font-size: 50px;
+}
+
+.level6-icon{
+	display:inline-block;
+	position: absolute;
+	font-size: 30px;
+}
+
+.icon1 {
+	top:120px;
+	left:420px;
+}
+
+.icon2{
+	top:279px;
+	left:670px;
+}
+
+.icon3{
+	top:330px;
+	left:190px;
+}
+
+.icon4{
+	top:230px;
+	left:867px;
+}
+
+.icon5{
+	top:165px;
+	left:979px;
+}
+
+.icon6{
+	top:245px;
+	left:53px;
+}
+
+.icon7{
+	top:216px;
+	left:320px;
+}
+
+.icon8{
+	top:361px;
+	left:982px;
+}
+
+.icon9{
+	top:327px;
+	left:415px;
+}
+
+.icon10{
+	top:150px;
+	left:660px;
+}
+
+/*////////////////////////////////////
+//Styling of Level 7
+///////////////////////////////////*/
+
+#level7 {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#level7-text {
 	font-family: 'Righteous', cursive;
 	font-size: 30px;
 	margin-bottom: 5px;
 }
 
-#level4-text2 {
+#level7-text2 {
 	font-family: 'Righteous', cursive;
 	font-size: 30px;
 	display: none;
 }
 
-#level4-board {
+#level7-board {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -174,7 +318,7 @@ body{
 	margin: 0 auto;
 }
 
-.level4-box{
+.level7-box{
 	width: 100px;
 	height: 100px;
 	margin:5px;
@@ -183,7 +327,7 @@ body{
 	border-radius: 10px;
 }
 
-#level4-board-text{
+#level7-board-text{
 	font-family: 'Righteous', cursive;
 	width: 100px;
 	height: 100px;
@@ -192,9 +336,151 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Footer
+//Styling of Level 8
 ///////////////////////////////////*/
 
+#level8 {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#level8-text {
+	font-family: 'Amatic SC', cursive;
+	font-size:40px;
+}
+
+#level8-board {
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 23px;
+	font-family: 'Bahianita',cursive;
+}
+
+
+/*////////////////////////////////////
+//Styling of Level 9
+///////////////////////////////////*/
+
+#level9 {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#level9-text {
+	font-family: 'Courgette', cursive;
+	font-size:40px;
+}
+
+#clock {
+	background-color: #252422;
+	border: 3px solid #CCC5B9;
+	border-radius: 30%;
+	width:400px;
+	height:200px;
+	margin: 20px auto;
+}
+
+.clock-button {
+	width: 100px;
+	height: 50px;
+	font-size: 25px;
+	border-radius: 30%;
+	font-family: 'Bubblegum Sans', cursive;
+
+}
+
+#clock-text{
+	font-family: 'Bahianita',cursive;
+	color: white;
+	font-size: 125px;
+}
+
+#start-clock{
+	display: initial;
+}
+
+#stop-clock{
+	display: none;
+}
+
+/*////////////////////////////////////
+//Styling of Level 10
+///////////////////////////////////*/
+
+#level10 {
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+
+#level10-text {
+	font-family: 'Barriecito', cursive;
+	text-align: center;
+	font-size: 50px;
+}
+
+#level10-answer-text{
+	font-family: 'Amatic SC', cursive;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#level10-answer{
+	width: 300px;
+	height: 50px;
+	border: none;
+	border-bottom: 2px solid black;
+}
+
+/*////////////////////////////////////
+//Styling of GameWon
+///////////////////////////////////*/
+
+#gamewon {
+	display: none;
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	font-size: 80px;t
+}
+
+.restart-button{
+	width: 200px;
+	height: 80px;
+	font-size: 40px;
+	font-family: 'Amatic SC', cursive;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*////////////////////////////////////
+//Styling of GameLose
+///////////////////////////////////*/
+
+#gamelose {
+	display: none;
+	position: absolute;
+	top: 93px;
+	left: 70px;
+	background-color:grey;
+	opacity: 0.8;
+	width: 1140px;
+	height: 450px;
+	text-align: center;
+	padding-top: 100px;
+}
+
+#gamelose-text {
+	font-family: 'Amatic SC', cursive;
+	font-size: 80px;
+	font-weight: bold;
+	color: white;
+}
+/*////////////////////////////////////
+//Styling of Footer
+///////////////////////////////////*/
 .disclaimer{
 	color: grey;
 	text-align: center;
