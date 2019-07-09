@@ -12,17 +12,27 @@
     <!-- Google Fonts CSS -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Bahianita|Baloo|Barriecito|Bubblegum+Sans|Courgette|Gloria+Hallelujah|Kaushan+Script|Righteous|Sniglet:400,800&display=swap" rel="stylesheet">
 
-
     <!-- User Stylesheet -->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body class="container">
+    <iframe src="music/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+
+    <audio id='background-music' autoplay loop>
+        <source src='music/JauntyGumption.mp3' type='audio/mp3'>
+    </audio>
+
+    <audio id='failure-music'>
+        <source src='music/violin.mp3' type='audio/mp3'>
+    </audio>
+
+
     <header class="row" id='header'>
         <div class="col-4 progress-container">
             <img src="img/dog.png" id="level-image">
             <div id="progress-bar">
-            <p id="level-text"> Level 1 </p>
+            <p id="level-text" onclick="goToLevel9()"> Level 1 </p>
             </div>
 
         </div>
