@@ -74,6 +74,12 @@ var minusLive = function(){
 
     lives.removeChild(lives.children[lastChild]);
 
+    //Animation to shake body when Minus Live
+    document.body.classList.add('animate-shake');
+    setTimeout(function(){
+        document.body.classList.remove('animate-shake');
+    },500);
+
     //Provide a bit of lag for the heart to disappear
     setTimeout(function(){
         if (lives.children.length === 1){
@@ -90,7 +96,7 @@ var minusLive = function(){
         document.getElementById('restart-game2').addEventListener('click', function() {
             location.reload();
         });
-    }},50);
+    }},500);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

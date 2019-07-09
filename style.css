@@ -51,12 +51,16 @@ body{
 	height: 70px;
 }
 
+.animate-shake {
+	animation: shake 0.5s linear 0s 1;
+}
+
 /*////////////////////////////////////
 //Styling of Game Area
 ///////////////////////////////////*/
 
 #main-game-area{
-	padding-top: 100px;  /*50px for level 6, 10px for level 7, 50px for level 8, 30px for level 9*/
+	padding-top: 100px;
 	border:1px solid black;
 	height:450px;
 	text-align: center;
@@ -464,7 +468,7 @@ body{
 	display: none;
 	position: absolute;
 	top: 93px;
-	left: 70px;
+	left: 62px;
 	background-color:grey;
 	opacity: 0.8;
 	width: 1140px;
@@ -479,6 +483,7 @@ body{
 	font-weight: bold;
 	color: white;
 }
+
 /*////////////////////////////////////
 //Styling of Footer
 ///////////////////////////////////*/
@@ -486,4 +491,26 @@ body{
 	color: grey;
 	text-align: center;
 	margin: 0;
+}
+
+/*////////////////////////////////////
+//KeyFrames
+///////////////////////////////////*/
+
+@keyframes shake{
+	10%, 90% {
+    transform: translate(-1px, 0);
+  }
+
+  20%, 80% {
+    transform: translate(2px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate(-4px, 0);
+  }
+
+  40%, 60% {
+    transform: translate(4px, 0);
+  }
 }
