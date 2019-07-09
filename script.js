@@ -24,8 +24,12 @@
 //  2.6 [Ascending/Descending Number] Setup of Level 6 and Gameplay of Level 6
 //      2.6.1 [resetLevel5] - Reset Aesthetic Changes to Dog element
 //      2.6.2 [Global Variables] - Declaring of Level 6 Global variable
-//      2.6.3 [changeNextNumber] - Add and Remove event listener and ascending/descending switch
-//      2.6.4 [goToLevel6] - Level 6 Game Function
+//      2.6.3 [level6RandomFont] - Generate random Font Size and Color
+//      2.6.4 [generateRandomNumber] - Generate random number each iteration
+//      2.6.5 [ascendingDescending] - Random Selection of ascending or descending
+//      2.6.6 [game6Setup] - Setup of board at each iteration
+//      2.6.7 [changeNextNumber] - Check Win and change next number when needed
+//      2.6.8 [goToLevel6] - Level 6 Game Function
 //  2.7 [Pay Attention] - Setup of Level 7 and Gameplay of Level 7
 //      2.7.1 [Global Variable] - Global Variable for level 7
 //      2.7.2 [checkLevel7Win] - Check win condition for level 7
@@ -178,6 +182,7 @@ var goToLevel4 = function(){
     document.getElementById('lives-title').onclick=minusLive;
     document.getElementById('level4-fake').onclick=minusLive;
     document.getElementById('dot2').onclick=minusLive;
+    document.getElementById('level4-fake2').onclick=minusLive;
 
     //Scrolling of wheel to shrink the dot - decreasing Width by 5px and increasing MarginTop-10px
     dotOne.addEventListener('wheel', function(){
@@ -216,7 +221,8 @@ var goToLevel4 = function(){
         width = parseInt(width);
 
         if (width === 3){
-            document.getElementById('lives-title').removeEventListener('click',minusLive);
+            document.getElementById('lives-title').onclick='';
+            document.getElementById('level4-fake2').onclick='';
             goToLevel5();
         } else {
             minusLive();
@@ -242,7 +248,7 @@ var catMove = function() {
 var dogMove=function() {
     //Remove catMove and minusLive from the game area
     document.querySelector('body').removeEventListener('mouseover',catMove);
-    document.getElementById('main-game-area').removeEventListener('click',minusLive);
+    document.getElementById('main-game-area').onclick='';
 
     //Function Variable Declaration
     var cat=document.getElementById('cat');
@@ -283,7 +289,7 @@ var goToLevel5 = function(){
     dog.onclick = dogMove;
     //Set Timeout to prevent accidental mouseUp from previous level
     setTimeout(function() {
-        document.getElementById('main-game-area').addEventListener('click',minusLive);
+        document.getElementById('main-game-area').onclick=minusLive;
     },200);
 }
 
@@ -297,67 +303,139 @@ var resetLevel5 = function(){
     var dog = document.getElementById('level-image');
 
     document.querySelector('.progress-container').prepend(dog);
-    dog.removeEventListener('click',dogMove);
+    dog.onclick='';
     dog.style.display='block';
     dog.style.width='30px';
 }
 
 //2.6.2 [Global Variables] - Declaring of Level 6 Global variable
-var mainIndex6 = [10,11,12,13,14,15,16,17,18,19];
+var numbersLeft=10;
+var numberObject = {};
 var iconColorBank = ['#FB5012','#01FDF6','#CBBAED','#E9DF00','#03FCBA'];
 
-//2.6.3 [changeNextNumber] - Change to next number on the list, add and remove event listener and ascending/descending switch
-var changeNextNumber = function(){
-    //Getting Id number of event
-    var id = this.id;
-    id=parseInt(id);
-
-    //for first 5 numbers in ascending order
-    if (mainIndex6.length >=6 && id===mainIndex6[0]){
-        //Remove number from display and index
-        this.style.display='none';
-        mainIndex6.shift();
-
-        //Remove minusLive event listener and add new event Listener
-        var currentIndex=document.getElementById(`${mainIndex6[0]}`);
-        currentIndex.removeEventListener('click',minusLive);
-        currentIndex.onclick=changeNextNumber;
-    }else if(mainIndex6.length === 5 && id===mainIndex6[0]){ //change from ascending to descending
-        //Remove number from display and index
-        this.style.display='none';
-        mainIndex6.shift();
-        //Change of text from ascending to descending
-        document.getElementById('level6-text1').style.display='none';
-        document.getElementById('level6-text2').style.display='initial';
-
-        //Set Last Element as next element
-        var length = mainIndex6.length;
-        var currentIndex=document.getElementById(`${mainIndex6[length-1]}`);
-        //Remove minusLive event listener and add new event Listener
-        document.getElementById(`${mainIndex6[0]}`).removeEventListener('click',minusLive);
-        currentIndex.onclick=changeNextNumber;
-    }else if ((mainIndex6.length<5 && mainIndex6.length>0) && (id===mainIndex6[mainIndex6.length-1])) { //descending order+check Win
-        //Remove Number from display and index
-        this.style.display='none';
-        mainIndex6.pop();
-
-        //Check Win condition
-        if(mainIndex6.length===0){
-            goToLevel7();
-            return;
+//2.6.3 [level6RandomFont] - Generate random Font Size and Color
+var level6RandomFont = function () {
+    var game6Container = document.getElementById('level6-game-container')
+    //Generate random fontSize
+    for (var i=0; i<numbersLeft; i++){
+        var fontSize=Math.floor(Math.random()*71);
+        var randomColor = Math.floor(Math.random()*5);
+        if (fontSize<25){
+            fontSize+=25;
         }
-
-        //Set Last Element as next element
-        var length = mainIndex6.length;
-        var currentIndex=document.getElementById(`${mainIndex6[length-1]}`);
-        //Remove minusLive event listener and add new event listener
-        currentIndex.removeEventListener('click',minusLive);
-        currentIndex.onclick=changeNextNumber;
+        //Assign random font size and color
+        game6Container.children[i].style.fontSize=`${fontSize}px`;
+        game6Container.children[i].style.color = iconColorBank[randomColor];
     }
 }
 
-//2.6.4 [goToLevel6] - Level 6 Game Function
-var goToLevel6 = function(){
+//2.6.4 [generateRandomNumber] - Generate random number each iteration
+var generateRandomNumber = function (noOfNumbers) {
+    //create temporary function variables
+    var generatedNumbers = [];
+    var game6Container = document.getElementById('level6-game-container');
+    //reset number object
+    numberObject={};
+
+    //Generate random number
+    for (var i=0; i<noOfNumbers; i++){
+        var number = Math.floor(Math.random()*31);
+        var isNegative = Math.floor(Math.random()*2);
+        if (isNegative===1){
+            number = 0 - number;
+        }
+
+        //check for duplicates
+        while(generatedNumbers.includes(number)){
+            number = Math.floor(Math.random()*31);
+            isNegative = Math.floor(Math.random()*2);
+            if (isNegative===1){
+            number = 0 - number;
+            }
+        }
+
+        //add number generated into temporary array
+        generatedNumbers.push(number);
+        //assign number to element
+        game6Container.children[i].innerText=number;
+        //assign number:id key value pair
+        numberObject[`${number}`] = game6Container.children[i].id;
+        //initialise minusLive to all children
+        game6Container.children[i].onclick=minusLive;
+    }
+    //Sort numbers from smallest to largest
+    generatedNumbers.sort(function(a,b){
+        return a-b;
+    })
+    //return sorted number array
+    return generatedNumbers;
+}
+
+//2.6.5 [ascendingDescending] - Random Selection of ascending or descending
+var ascendingDescending = function(){
+    //0 is descending 1 is ascending
+    var order = Math.floor(Math.random()*2);
+    var text1 = document.getElementById('level6-text1');
+    var text2 = document.getElementById('level6-text2');
+
+    //change text display
+    if (order===1){
+        text1.style.display = 'initial';
+        text2.style.display = 'none';
+    } else {
+        text1.style.display = 'none';
+        text2.style.display = 'initial';
+    }
+
+    return order;
+}
+
+//2.6.6 [game6Setup] - Setup of board at each iteration
+var game6Setup = function(){
+    //Generate Random Font and color
+    level6RandomFont();
+    //Generated Sorted Generated Number
+    var sortedGeneratedNumbers = generateRandomNumber(numbersLeft);
+    //Generate Random Order and change text display: 1 ascending, 0  descending
+    var order = ascendingDescending();
+
+    //If ascending, assign lowest number to be correct entry. If Descending, assign highest number.
+    if (order === 1) {
+        var lowestNumber = sortedGeneratedNumbers[0];
+        var id = numberObject[lowestNumber];
+
+        document.getElementById(`${id}`).onclick = changeNextNumber;
+    } else if (order === 0) {
+        var length = sortedGeneratedNumbers.length;
+        var largestNumber = sortedGeneratedNumbers[length-1];
+        var id = numberObject[largestNumber];
+
+        document.getElementById(`${id}`).onclick = changeNextNumber;
+    }
+}
+
+//2.6.7 [changeNextNumber] - Check Win and change next number when needed
+var changeNextNumber = function(){
+    //remove current child
+    var currentNumber = parseInt(this.innerText);
+    var game6Container = document.getElementById('level6-game-container');
+    var childToRemove = document.getElementById(`${numberObject[currentNumber]}`);
+    game6Container.removeChild(childToRemove);
+    //minus 1 number from number left;
+    numbersLeft--;
+
+    //If there is no number left, go to next level
+    if (numbersLeft===0){
+        goToLevel7();
+        return;
+    }
+    //Setup Subsequent Iteration
+    game6Setup();
+
+}
+
+//2.6.8 [goToLevel6] - Level 6 Game Function
+var goToLevel6 = function() {
     //Hide Previous Level and Load Next Level
     document.getElementById('level5').style.display = 'none';
     document.getElementById('level6').style.display = 'initial';
@@ -365,26 +443,8 @@ var goToLevel6 = function(){
     resetLevel5();
     //Update Progress Bar
     increaseProgressBar(6);
-
-    //Set random font-size for each number
-    for (var i=0; i<10; i++){
-        var fontSize=Math.floor(Math.random()*71);
-        var randomColor = Math.floor(Math.random()*5);
-        if (fontSize<20){
-            fontSize+=20;
-        }
-
-        document.getElementById(`${mainIndex6[i]}`).style.fontSize=`${fontSize}px`;
-        document.getElementById(`${mainIndex6[i]}`).style.color = iconColorBank[randomColor];
-    }
-
-    //Initialise correct click for first number
-    document.getElementById(`${mainIndex6[0]}`).onclick=changeNextNumber;
-
-    //Initialise incorrect click for the rest of the numbers
-    for (var j=1; j<10; j++){
-        document.getElementById(`${mainIndex6[j]}`).onclick=minusLive;
-    }
+    //Setup first iteration
+    game6Setup();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -472,6 +532,8 @@ var goToLevel7 = function(){
                 console.log(checkWinOrder7);
                 clearInterval(initialise);
                 document.getElementById('level7-board-text').innerText='';
+                document.getElementById('level7-text').style.display='none';
+                document.getElementById('level7-text2').style.display='initial';
             }
         },400)
     },800)
