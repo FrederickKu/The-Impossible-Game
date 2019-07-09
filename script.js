@@ -162,8 +162,6 @@ var goToLevel3 = function(checkLevel2Win){
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //2.4 [Find the Dot!] Setup of Level 4 and Gameplay of Level 4
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//need to solve extra scroll on touch pad
-// var dotCount = 0;
 
 //2.4.1 [goToLevel4] - Level 4 Game Function
 var goToLevel4 = function(){
@@ -184,33 +182,12 @@ var goToLevel4 = function(){
     document.getElementById('dot2').onclick=minusLive;
     document.getElementById('level4-fake2').onclick=minusLive;
 
-    //Scrolling of wheel to shrink the dot - decreasing Width by 5px and increasing MarginTop-10px
+    //set width after scroll - transition 0.4s
     dotOne.addEventListener('wheel', function(){
-        //Getting current Width and Margin Top of element
-        var width = this.offsetWidth;
-        var marginTop = this.style.marginTop;
-        //if reach final size, stop shinking
-        if (marginTop ==='100px' && width ==='3px'){
-           return;
-        }
-        //Decreasing of width
-        width = width - 18.5;
-        //Setting of width and height (square)
-        this.style.width=`${width}px`;
-        this.style.height=`${width}px`;
-
-        //Setting of Margin Top: set initial Margin Top to 10px and increase thereafter
-        //if condition required as first read of MarginTop will be undefined. Will require initialization.of Margin Top
-        if (marginTop.length > 0 && marginTop!=='100px'){
-            //Getting of current margin top
-            marginTop = marginTop.substr(0,2);
-            marginTop = parseInt(marginTop) + 10;
-
-            this.style.marginTop=`${marginTop}px`;
-
-        } else {
-            this.style.marginTop = '10px';
-        }
+        //Set Width after scroll
+        this.style.width = '2px';
+        this.style.height = '2px';
+        this.style.marginTop = '100px';
     })
 
     //Win condition that only if dot has been shrunk.
@@ -220,7 +197,7 @@ var goToLevel4 = function(){
         width = width.substr(0,3);
         width = parseInt(width);
 
-        if (width === 3){
+        if (width === 2){
             document.getElementById('lives-title').onclick='';
             document.getElementById('level4-fake2').onclick='';
             goToLevel5();

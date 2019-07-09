@@ -172,6 +172,7 @@ body{
 	width: 190px;
 	height: 190px;
 	margin: 0 auto;
+	transition: 0.4s;
 }
 
 #dot2 {
@@ -206,6 +207,7 @@ body{
 	left: 550px;
 	font-size: 30px;
 	margin: 0 10px;
+	transition: 0.1s;
 }
 
 /*////////////////////////////////////
@@ -346,7 +348,7 @@ body{
 
 #level8-text {
 	font-family: 'Amatic SC', cursive;
-	font-size:40px;
+	font-size:60px;
 }
 
 #level8-board {
