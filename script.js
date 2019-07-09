@@ -1,55 +1,55 @@
-////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////
-//This file contains all the Javascript Global Variables and functions for The Impossible Game
-//
-//For Quick Search for each section, search by index based on the table of content below:
 
-//1.Header Display functions & Game Lose Function
-//  1.1 [increaseProgressBar] - Movement of Progress Bar after each Level
-//  1.2 [minusLive] - Minus live and check game loss function
+/*///////////////////////////////////////////////////////////////////////////////////////////////
+This file contains all the Javascript Global Variables and functions for The Impossible Game
 
-//2. Main Level Functions
-//  2.1 [Press Start] Setup of Level 1 and Gameplay of Level 1
-//      2.1.1 [window.onload] - Level 1 Game Function
-//  2.2 [1+1] Setup of Level 2 and Gameplay of level 2
-//      2.2.1 [goToLevel2] - Level 2 Game Function
-//  2.3 [Type Backwards] Setup of Level 3 and Gameplay of level 3
-//      2.3.1 [goToLevel3] - Level 3 Game Function
-//  2.4 [Find the Dot!] Setup of Level 4 and Gameplay of Level 4
-//      2.4.1 [goToLevel4] - Level 4 Game Function
-//  2.5 [Catch the Cat] Setup of Level 5 and Gameplay of Level 5
-//      2.5.1 [catMove] - Randomised Movement of Cat
-//      2.5.2 [dogMove] - Stopping of cat movement after clicking on dog
-//      2.5.3 [goToLevel5] - Level 5 Game function
-//  2.6 [Ascending/Descending Number] Setup of Level 6 and Gameplay of Level 6
-//      2.6.1 [resetLevel5] - Reset Aesthetic Changes to Dog element
-//      2.6.2 [Global Variables] - Declaring of Level 6 Global variable
-//      2.6.3 [level6RandomFont] - Generate random Font Size and Color
-//      2.6.4 [generateRandomNumber] - Generate random number each iteration
-//      2.6.5 [ascendingDescending] - Random Selection of ascending or descending
-//      2.6.6 [game6Setup] - Setup of board at each iteration
-//      2.6.7 [changeNextNumber] - Check Win and change next number when needed
-//      2.6.8 [goToLevel6] - Level 6 Game Function
-//  2.7 [Pay Attention] - Setup of Level 7 and Gameplay of Level 7
-//      2.7.1 [Global Variable] - Global Variable for level 7
-//      2.7.2 [checkLevel7Win] - Check win condition for level 7
-//      2.7.3 [initialiseGameButton] initialise each button to check for win conditions
-//      2.7.4 [randomiseColor] issue random color to boxes
-//      2.7.5 [goToLevel7] Level 7 Game Function
-//  2.8 [What is the level?] - Setup of Level 8 and Gameplay of Level 8
-//      2.8.1 [Global Variable] - Global Variable for Level 8
-//      2.8.2 Success Function
-//      2.8.3 [goToLevel8] - Level 8 Main Function
-//  2.9 [Take A Break!] - Setup of Level 9 and Gameplay of Level 9
-//      2.9.1 [Timer Object] - Set up timer object
-//      2.9.2 [checkTime] - function to check time when it stops and if it is within win range
-//      2.9.3 [startTime] - function to start clock run when start is pressed
-//      2.9.4 [stopTime] - function when stop button is pressed
-//      2.9.5 [goToLevel9] - Level 9 Main Function
-//  2.10 [What is the answer?] Setup of Level 10 and Gameplay of Level 10
-//      2.10.1 [goToLevel10] - Level 10 Game Function
-////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////
+Table of Content:
+
+1.Header Display functions & Game Lose Function
+  1.1 [increaseProgressBar] - Movement of Progress Bar after each Level
+  1.2 [minusLive] - Minus live and check game loss function
+
+2. Main Level Functions
+  2.1 [Press Start] Setup of Level 1 and Gameplay of Level 1
+      2.1.1 [window.onload] - Level 1 Game Function
+  2.2 [1+1] Setup of Level 2 and Gameplay of level 2
+      2.2.1 [goToLevel2] - Level 2 Game Function
+  2.3 [Type Backwards] Setup of Level 3 and Gameplay of level 3
+      2.3.1 [goToLevel3] - Level 3 Game Function
+  2.4 [Find the Dot!] Setup of Level 4 and Gameplay of Level 4
+      2.4.1 [goToLevel4] - Level 4 Game Function
+  2.5 [Catch the Cat] Setup of Level 5 and Gameplay of Level 5
+      2.5.1 [catMove] - Randomised Movement of Cat
+      2.5.2 [dogMove] - Stopping of cat movement after clicking on dog
+      2.5.3 [goToLevel5] - Level 5 Game function
+  2.6 [Ascending/Descending Number] Setup of Level 6 and Gameplay of Level 6
+      2.6.1 [resetLevel5] - Reset Aesthetic Changes to Dog element
+      2.6.2 [Global Variables] - Declaring of Level 6 Global variable
+      2.6.3 [level6RandomFont] - Generate random Font Size and Color
+      2.6.4 [generateRandomNumber] - Generate random number each iteration
+      2.6.5 [ascendingDescending] - Random Selection of ascending or descending
+      2.6.6 [game6Setup] - Setup of board at each iteration
+      2.6.7 [changeNextNumber] - Check Win and change next number when needed
+      2.6.8 [goToLevel6] - Level 6 Game Function
+  2.7 [Pay Attention] - Setup of Level 7 and Gameplay of Level 7
+      2.7.1 [Global Variable] - Global Variable for level 7
+      2.7.2 [checkLevel7Win] - Check win condition for level 7
+      2.7.3 [initialiseGameButton] initialise each button to check for win conditions
+      2.7.4 [randomiseColor] issue random color to boxes
+      2.7.5 [goToLevel7] Level 7 Game Function
+  2.8 [What is the level?] - Setup of Level 8 and Gameplay of Level 8
+      2.8.1 [Global Variable] - Global Variable for Level 8
+      2.8.2 Success Function
+      2.8.3 [goToLevel8] - Level 8 Main Function
+  2.9 [Take A Break!] - Setup of Level 9 and Gameplay of Level 9
+      2.9.1 [Timer Object] - Set up timer object
+      2.9.2 [checkTime] - function to check time when it stops and if it is within win range
+      2.9.3 [startTime] - function to start clock run when start is pressed
+      2.9.4 [stopTime] - function when stop button is pressed
+      2.9.5 [goToLevel9] - Level 9 Main Function
+  2.10 [What is the answer?] Setup of Level 10 and Gameplay of Level 10
+      2.10.1 [goToLevel10] - Level 10 Game Function
+//////////////////////////////////////////////////////////////////////////////////////////////*/
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //1. Header Display functions & Game Lose Function
@@ -74,14 +74,16 @@ var minusLive = function(){
 
     lives.removeChild(lives.children[lastChild]);
 
+    //Play wrong audio, start at 0.5sec
+    document.getElementById('wrong').currentTime=0.5;
+    document.getElementById('wrong').play();
+
     //Animation to shake body when Minus Live
     document.body.classList.add('animate-shake');
     setTimeout(function(){
         document.body.classList.remove('animate-shake');
-    },500);
 
-    //Provide a bit of lag for the heart to disappear
-    setTimeout(function(){
+        //Check for game lose
         if (lives.children.length === 1){
         var gamelose = document.getElementById('gamelose');
 
@@ -95,8 +97,10 @@ var minusLive = function(){
 
         document.getElementById('restart-game2').addEventListener('click', function() {
             location.reload();
-        });
-    }},500);
+            });
+        }
+    },500);
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -121,6 +125,9 @@ window.onload = function (){
 
 //2.2.1 [goToLevel2] - Level 2 Game Function
 var goToLevel2 = function(){
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
     //Hide previous level and load new level
     document.getElementById('level1').style.display = 'none';
     document.getElementById('level2').style.display = 'initial';
@@ -146,6 +153,9 @@ var goToLevel2 = function(){
 
 //2.3.1 [goToLevel3] - Level 3 Game Function
 var goToLevel3 = function(checkLevel2Win){
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
     //Hide previous level and load new level
     document.getElementById('level2').style.display = 'none';
     document.getElementById('level3').style.display = 'initial';
@@ -171,6 +181,9 @@ var goToLevel3 = function(checkLevel2Win){
 
 //2.4.1 [goToLevel4] - Level 4 Game Function
 var goToLevel4 = function(){
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
     //Hide previous level and load new level
     document.getElementById('level3').style.display = 'none';
     document.getElementById('level4').style.display = 'initial';
@@ -252,6 +265,9 @@ var dogMove=function() {
 
 //2.5.3 [goToLevel5] - Level 5 Game function
 var goToLevel5 = function(){
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
     //Hide previous level and load new level
     document.getElementById('level4').style.display = 'none';
     document.getElementById('level5').style.display = 'initial';
@@ -419,6 +435,9 @@ var changeNextNumber = function(){
 
 //2.6.8 [goToLevel6] - Level 6 Game Function
 var goToLevel6 = function() {
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
     //Hide Previous Level and Load Next Level
     document.getElementById('level5').style.display = 'none';
     document.getElementById('level6').style.display = 'initial';
@@ -479,6 +498,9 @@ var randomiseColor = function(buttonColorBank) {
 
 //2.7.5 [goToLevel7] Level 7 Game Function
 var goToLevel7 = function(){
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
     //Hide Previous Level and Load Next Level
     document.getElementById('level6').style.display = 'none';
     document.getElementById('level7').style.display = 'initial';
@@ -539,11 +561,14 @@ var success8 = function() {
 
 //2.8.3 [goToLevel8] - Level 8 Main Function
 var goToLevel8 = function(){
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
     //Hide previous level and Load next level
     document.getElementById('level7').style.display = 'none';
     document.getElementById('level8').style.display = 'initial';
     //Update Game Aesthetic
-    document.getElementById('main-game-area').style.paddingTop = '50px';
+    document.getElementById('main-game-area').style.paddingTop = '20px';
     //Update Game Progress bar
     increaseProgressBar(8);
 
@@ -578,7 +603,6 @@ var goToLevel8 = function(){
 
         currentEight = document.getElementById(`${mainIndex8[subIndex]}`);
         previousEight = currentEight;
-        console.log(mainIndex8[subIndex]);
 
         currentEight.removeEventListener('click',minusLive);
         currentEight.onclick=success8;
@@ -608,14 +632,14 @@ var timeClock = {
 var checkTime = function(){
     //if 9.8s <= Time <= 10.2sec, level clear
     if (timeClock.secondTenths === 1 && timeClock.secondOnes === 0) {
-        if (timeClock.tenthMilli <=9){
+        if (timeClock.tenthMilli <=2){
             timeClock.levelClear=true;
             goToLevel10();
         } else {
             minusLive();
         }
     } else if (timeClock.secondTenths === 0 & timeClock.secondOnes === 9){
-        if (timeClock.tenthMilli >= 0){
+        if (timeClock.tenthMilli >= 8){
             timeClock.levelClear=true;
             goToLevel10();
         } else {
@@ -638,7 +662,6 @@ var startTime = function(){
     timeClock.secondTenths = 0;
     //Set Interval to start clock run
     var timeClockStart = setInterval(function(){
-        console.log('trigger');
         timeClock.hundredMilli++;
         if (timeClock.hundredMilli === 10){
             timeClock.hundredMilli = 0;
@@ -676,6 +699,9 @@ var stopTime = function () {
 
 //2.9.5 [goToLevel9] - Level 9 Main Function
 var goToLevel9 = function(){
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
     //Hide previous level and load current level
     document.getElementById('level8').style.display = 'none';
     document.getElementById('level9').style.display = 'initial';
@@ -694,6 +720,9 @@ var goToLevel9 = function(){
 
 //2.10.1 [goToLevel10] - Level 10 Game Function
 var goToLevel10 = function() {
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
     //Hide previous level and load current level
     document.getElementById('level9').style.display = 'none';
     document.getElementById('level10').style.display = 'initial';
@@ -703,8 +732,14 @@ var goToLevel10 = function() {
     document.getElementById('level10-answer').onkeypress = function() {
         if(event.keyCode === 13){
             if (this.value.toLowerCase() === 'name'){
+                //display game won screen
                 document.getElementById('level10').style.display = 'none';
                 document.getElementById('gamewon').style.display = 'initial';
+
+                //change to victory audio
+                document.getElementById('background-music').pause()
+                document.getElementById('victory').currentTime=60;
+                document.getElementById('victory').play();
 
                 document.getElementById('main-game-area').style.paddingTop = '100px';
                 document.getElementById('restart-game2').addEventListener('click', function() {location.reload();});

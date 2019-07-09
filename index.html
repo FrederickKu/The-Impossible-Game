@@ -17,6 +17,7 @@
 </head>
 
 <body class="container">
+    <!--  Audio files used in the Game-->
     <iframe src="music/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
 
     <audio id='background-music' autoplay loop>
@@ -24,18 +25,32 @@
     </audio>
 
     <audio id='failure-music'>
-        <source src='music/violin.mp3' type='audio/mp3'>
+        <source src='music/gamelose.mp3' type='audio/mp3'>
+    </audio>
+
+    <audio id='correct'>
+        <source src='music/correctanswer.mp3' type='audio/mp3'>
+    </audio>
+
+    <audio id='wrong'>
+        <source src='music/wronganswer.mp3' type='audio/mp3'>
+    </audio>
+
+    <audio id='victory'>
+        <source src='music/gladiatorvictory.mp3' type='audio/mp3'>
     </audio>
 
 
+    <!--  Header of the Game- Contains Progress bar and Lives left-->
     <header class="row" id='header'>
+        <!--  Progress Bar-->
         <div class="col-4 progress-container">
             <img src="img/dog.png" id="level-image">
             <div id="progress-bar">
             <p id="level-text"> Level 1 </p>
             </div>
-
         </div>
+        <!--  Lives Left-->
         <div class="col-5 offset-3" id='lives-container'>
             <p id="lives-title">LIVES:</p>
             <img src="img/lives-heart.png" class="lives-image" id='heart1'>
@@ -44,6 +59,7 @@
         </div>
     </header>
 
+    <!--  Main Game Area Display-->
     <main class="row">
         <div class="col-12" id="main-game-area">
 
@@ -158,15 +174,18 @@
         </div>
     </main>
 
+    <!--  Game Lose Overlay-->
     <div id='gamelose'>
         <p id='gamelose-text'> Too Bad! 😛 you Lose!</p>
         <button class ='btn btn-light btn-lg restart-button' id='restart-game2'>Restart game!</button>
     </div>
 
+    <!--  Footer: disclaimer -->
     <footer class="row" id='footer'>
         <p class="col-12 disclaimer" id='level4-fake2'>Disclaimer: This game will not work on mobile phones or tablets!</p>
     </footer>
 
+    <!--  Javascript Local Source -->
     <script src="script.js"></script>
 </body>
 </html>

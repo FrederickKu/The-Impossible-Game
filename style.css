@@ -1,5 +1,29 @@
+/*////////////////////////////////////////////////////////////
+This file contains all the CSS styling for The Impossible Game
+
+Table of Content:
+
+1. Styling of Body
+2. Styling of Game Header
+3. Styling of Main Game Area
+4. Styling of Level 1
+5. Styling of Level 2
+6. Styling of Level 3
+7. Styling of Level 4
+8. Styling of Level 5
+9. Styling of Level 6
+10. Styling of Level 7
+11. Styling of Level 8
+12. Styling of Level 9
+13. Styling of Level 10
+14. Styling of Game Won Display
+15. Styling of Game Lose Overlay
+16. Styling of Footer
+/////////////////////////////////////////////////////////*/
+
+
 /*////////////////////////////////////
-//Styling of Body
+//1. Styling of Body
 ///////////////////////////////////*/
 
 body{
@@ -7,8 +31,30 @@ body{
 	background-size: 200px 200px;
 }
 
+.animate-shake {
+	animation: shake 0.5s linear 0s 1;
+}
+
+@keyframes shake{
+	10%, 90% {
+    transform: translate(-1px, 0);
+  }
+
+  20%, 80% {
+    transform: translate(2px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate(-4px, 0);
+  }
+
+  40%, 60% {
+    transform: translate(4px, 0);
+  }
+}
+
 /*////////////////////////////////////
-//Styling of Game Header
+//2. Styling of Game Header
 ///////////////////////////////////*/
 #level-image{
 	display: block;
@@ -51,12 +97,8 @@ body{
 	height: 70px;
 }
 
-.animate-shake {
-	animation: shake 0.5s linear 0s 1;
-}
-
 /*////////////////////////////////////
-//Styling of Game Area
+//3. Styling of Main Game Area
 ///////////////////////////////////*/
 
 #main-game-area{
@@ -67,7 +109,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Level 1
+//4. Styling of Level 1
 ///////////////////////////////////*/
 
 #level1 {
@@ -88,7 +130,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Level 2
+//5.Styling of Level 2
 ///////////////////////////////////*/
 
 #level2 {
@@ -124,7 +166,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Level 3
+//6. Styling of Level 3
 ///////////////////////////////////*/
 
 #level3 {
@@ -147,7 +189,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Level 4
+//7. Styling of Level 4
 ///////////////////////////////////*/
 
 #level4 {
@@ -189,7 +231,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Level 5
+//8. Styling of Level 5
 ///////////////////////////////////*/
 
 #level5 {
@@ -215,7 +257,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Level 5
+//9. Styling of Level 6
 ///////////////////////////////////*/
 
 #level6 {
@@ -294,7 +336,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Level 7
+//10. Styling of Level 7
 ///////////////////////////////////*/
 
 #level7 {
@@ -341,7 +383,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Level 8
+//11. Styling of Level 8
 ///////////////////////////////////*/
 
 #level8 {
@@ -365,7 +407,7 @@ body{
 
 
 /*////////////////////////////////////
-//Styling of Level 9
+//12. Styling of Level 9
 ///////////////////////////////////*/
 
 #level9 {
@@ -412,7 +454,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Level 10
+//13. Styling of Level 10
 ///////////////////////////////////*/
 
 #level10 {
@@ -441,7 +483,7 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of GameWon
+//14. Styling of Game Won Display
 ///////////////////////////////////*/
 
 #gamewon {
@@ -461,14 +503,14 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of GameLose
+//15. Styling of Game Lose Overlay
 ///////////////////////////////////*/
 
 #gamelose {
 	display: none;
 	position: absolute;
 	top: 93px;
-	left: 62px;
+	left: 70px;
 	background-color:grey;
 	opacity: 0.8;
 	width: 1140px;
@@ -485,32 +527,10 @@ body{
 }
 
 /*////////////////////////////////////
-//Styling of Footer
+//16. Styling of Footer
 ///////////////////////////////////*/
 .disclaimer{
 	color: grey;
 	text-align: center;
 	margin: 0;
-}
-
-/*////////////////////////////////////
-//KeyFrames
-///////////////////////////////////*/
-
-@keyframes shake{
-	10%, 90% {
-    transform: translate(-1px, 0);
-  }
-
-  20%, 80% {
-    transform: translate(2px, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate(-4px, 0);
-  }
-
-  40%, 60% {
-    transform: translate(4px, 0);
-  }
 }
