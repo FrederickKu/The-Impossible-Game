@@ -4,8 +4,8 @@ This file contains all the Javascript Global Variables and functions for The Imp
 
 Table of Content:
 
-1.Header Display functions & Game Lose Function
-  1.1 [increaseProgressBar] - Movement of Progress Bar after each Level
+1.Display functions
+  1.1 [generalStageSettings] - General stage settings for each level
   1.2 [minusLive] - Minus live and check game loss function
 
 2. Main Level Functions
@@ -52,20 +52,31 @@ Table of Content:
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//1. Header Display functions & Game Lose Function
+//1.Display functions
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-//1.1 [increaseProgressBar] - Movement of Progress Bar after each Level
-var increaseProgressBar = function(level) {
-    var newProgressBar = level*10;
+//1.1 [generalStageSettings] - General stage settings for each level
+var generalStageSettings = function(currentLevel){
+    //Play correct audio
+    document.getElementById('correct').currentTime=0.5;
+    document.getElementById('correct').play();
+
+    //Hide previous level and load new level
+    var previousLevel=currentLevel-1;
+    document.getElementById(`level${previousLevel}`).style.display = 'none';
+    document.getElementById(`level${currentLevel}`).style.display = 'initial';
+
+    //Update Level Bar
+    var newProgressBar = currentLevel*10;
 
     document.getElementById('progress-bar').style.width = `${newProgressBar}%`;
-    document.getElementById('level-text').innerText=`Level ${level}`;
+    document.getElementById('level-text').innerText=`Level ${currentLevel}`;
 
     var imageMargin = document.getElementById('progress-bar').offsetWidth;
     imageMargin-=20;
     document.getElementById('level-image').style.marginLeft = `${imageMargin}px`;
 }
+
 
 //1.2 [minusLive] - Minus live and check game loss function
 var minusLive = function(){
@@ -117,6 +128,7 @@ window.onload = function (){
     document.getElementById('level1-true').onclick = goToLevel2;
     document.getElementById('level1-fake1').onclick = minusLive;
     document.getElementById('level1-fake2').onclick = minusLive;
+    document.getElementById('level-forward').onclick = goToLevel2;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,14 +137,8 @@ window.onload = function (){
 
 //2.2.1 [goToLevel2] - Level 2 Game Function
 var goToLevel2 = function(){
-    //Play correct audio
-    document.getElementById('correct').currentTime=0.5;
-    document.getElementById('correct').play();
-    //Hide previous level and load new level
-    document.getElementById('level1').style.display = 'none';
-    document.getElementById('level2').style.display = 'initial';
-    //Update Level Bar
-    increaseProgressBar(2);
+
+    generalStageSettings(2);
     //Set Game Functions
     document.getElementById('level2-fake').onclick=minusLive;
 
@@ -144,7 +150,9 @@ var goToLevel2 = function(){
         }
     }
 
-    window.addEventListener('keypress',checkLevel2Win);
+    window.onkeypress=checkLevel2Win;
+
+    document.getElementById('level-forward').onclick = goToLevel3;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -153,16 +161,9 @@ var goToLevel2 = function(){
 
 //2.3.1 [goToLevel3] - Level 3 Game Function
 var goToLevel3 = function(checkLevel2Win){
-    //Play correct audio
-    document.getElementById('correct').currentTime=0.5;
-    document.getElementById('correct').play();
-    //Hide previous level and load new level
-    document.getElementById('level2').style.display = 'none';
-    document.getElementById('level3').style.display = 'initial';
+    generalStageSettings(3);
     //Remove previous level window event listener
-    window.removeEventListener('keypress',checkLevel2Win);
-    //Update Level bar
-    increaseProgressBar(3);
+    window.onkeypress='';
     //Set Game Function
     document.getElementById('level3-answer').onkeypress = function() {
         if(event.keyCode === 13){
@@ -173,6 +174,8 @@ var goToLevel3 = function(checkLevel2Win){
             }
         }
     };
+
+    document.getElementById('level-forward').onclick = goToLevel4;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,16 +184,8 @@ var goToLevel3 = function(checkLevel2Win){
 
 //2.4.1 [goToLevel4] - Level 4 Game Function
 var goToLevel4 = function(){
-    //Play correct audio
-    document.getElementById('correct').currentTime=0.5;
-    document.getElementById('correct').play();
-    //Hide previous level and load new level
-    document.getElementById('level3').style.display = 'none';
-    document.getElementById('level4').style.display = 'initial';
-    //Update game aesthetic
+    generalStageSettings(4);
     document.getElementById('main-game-area').style.paddingTop = '50px';
-    //Update Level Bar
-    increaseProgressBar(4);
 
     //Function Variable Declaration
     var dotOne = document.getElementById('dot1');
@@ -223,6 +218,12 @@ var goToLevel4 = function(){
         } else {
             minusLive();
         }
+    }
+
+    document.getElementById('level-forward').onclick= function(){
+        document.getElementById('lives-title').onclick='';
+        document.getElementById('level4-fake2').onclick='';
+        goToLevel5();
     }
 
 }
@@ -265,14 +266,7 @@ var dogMove=function() {
 
 //2.5.3 [goToLevel5] - Level 5 Game function
 var goToLevel5 = function(){
-    //Play correct audio
-    document.getElementById('correct').currentTime=0.5;
-    document.getElementById('correct').play();
-    //Hide previous level and load new level
-    document.getElementById('level4').style.display = 'none';
-    document.getElementById('level5').style.display = 'initial';
-    //Update Progress Bar
-    increaseProgressBar(5);
+    generalStageSettings(5);
     //Function Variable Declaration
     var cat=document.getElementById('cat');
     var body=document.querySelector('body');
@@ -290,6 +284,11 @@ var goToLevel5 = function(){
     setTimeout(function() {
         document.getElementById('main-game-area').onclick=minusLive;
     },200);
+
+    document.getElementById('level-forward').onclick = function(){
+        document.getElementById('main-game-area').onclick='';
+        goToLevel6();
+    }
 }
 
 
@@ -425,6 +424,7 @@ var changeNextNumber = function(){
 
     //If there is no number left, go to next level
     if (numbersLeft===0){
+        document.getElementById('level6-demo').onclick = '';
         goToLevel7();
         return;
     }
@@ -435,18 +435,13 @@ var changeNextNumber = function(){
 
 //2.6.8 [goToLevel6] - Level 6 Game Function
 var goToLevel6 = function() {
-    //Play correct audio
-    document.getElementById('correct').currentTime=0.5;
-    document.getElementById('correct').play();
-    //Hide Previous Level and Load Next Level
-    document.getElementById('level5').style.display = 'none';
-    document.getElementById('level6').style.display = 'initial';
-    //Remove previous level display
+    generalStageSettings(6);
     resetLevel5();
-    //Update Progress Bar
-    increaseProgressBar(6);
     //Setup first iteration
     game6Setup();
+
+    document.getElementById('level-forward').onclick = goToLevel7;
+    document.getElementById('level6-demo').onclick = game6Setup;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -498,16 +493,9 @@ var randomiseColor = function(buttonColorBank) {
 
 //2.7.5 [goToLevel7] Level 7 Game Function
 var goToLevel7 = function(){
-    //Play correct audio
-    document.getElementById('correct').currentTime=0.5;
-    document.getElementById('correct').play();
-    //Hide Previous Level and Load Next Level
-    document.getElementById('level6').style.display = 'none';
-    document.getElementById('level7').style.display = 'initial';
-    //Update game aesthetic
+    generalStageSettings(7);
     document.getElementById('main-game-area').style.paddingTop = '10px';
-    //Update Progress Bar
-    increaseProgressBar(7);
+
 
     //Declare Function Variables
     var gameButtons = document.querySelectorAll('.level7-box');
@@ -542,6 +530,8 @@ var goToLevel7 = function(){
             }
         },400)
     },800)
+
+    document.getElementById('level-forward').onclick=goToLevel8;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -561,16 +551,10 @@ var success8 = function() {
 
 //2.8.3 [goToLevel8] - Level 8 Main Function
 var goToLevel8 = function(){
-    //Play correct audio
-    document.getElementById('correct').currentTime=0.5;
-    document.getElementById('correct').play();
-    //Hide previous level and Load next level
-    document.getElementById('level7').style.display = 'none';
-    document.getElementById('level8').style.display = 'initial';
+    generalStageSettings(8);
     //Update Game Aesthetic
     document.getElementById('main-game-area').style.paddingTop = '20px';
-    //Update Game Progress bar
-    increaseProgressBar(8);
+
 
     //Add minusLive to all 0
     var fakeEights = document.querySelectorAll('level8-fake');
@@ -612,6 +596,8 @@ var goToLevel8 = function(){
             clearInterval(eightLoop);
         }
     },1500);
+
+    document.getElementById('level-forward').onclick=goToLevel9;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -699,19 +685,17 @@ var stopTime = function () {
 
 //2.9.5 [goToLevel9] - Level 9 Main Function
 var goToLevel9 = function(){
-    //Play correct audio
-    document.getElementById('correct').currentTime=0.5;
-    document.getElementById('correct').play();
-    //Hide previous level and load current level
-    document.getElementById('level8').style.display = 'none';
-    document.getElementById('level9').style.display = 'initial';
+
+    generalStageSettings(9);
+
     //Update aesthetics
     document.getElementById('main-game-area').style.paddingTop = '20px';
-    //Update progress bar
-    increaseProgressBar(9);
+
     //initialise DOM onclick on buttons
     document.getElementById('start-clock').onclick = startTime;
     document.getElementById('stop-clock').onclick = stopTime;
+
+    document.getElementById('level-forward').onclick=goToLevel10;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -720,14 +704,7 @@ var goToLevel9 = function(){
 
 //2.10.1 [goToLevel10] - Level 10 Game Function
 var goToLevel10 = function() {
-    //Play correct audio
-    document.getElementById('correct').currentTime=0.5;
-    document.getElementById('correct').play();
-    //Hide previous level and load current level
-    document.getElementById('level9').style.display = 'none';
-    document.getElementById('level10').style.display = 'initial';
-    //Update Progress Bar
-    increaseProgressBar(10);
+    generalStageSettings(10);
     //Check if answer is the answer to the riddle in level 7
     document.getElementById('level10-answer').onkeypress = function() {
         if(event.keyCode === 13){
@@ -742,10 +719,13 @@ var goToLevel10 = function() {
                 document.getElementById('victory').play();
 
                 document.getElementById('main-game-area').style.paddingTop = '100px';
-                document.getElementById('restart-game2').addEventListener('click', function() {location.reload();});
+                document.getElementById('restart-game1').addEventListener('click', function() {
+                    location.reload();
+                });
             } else {
                 minusLive();
             }
         }
     };
+    document.getElementById('level-forward').onclick='';
 }

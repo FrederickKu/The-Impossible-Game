@@ -532,5 +532,9 @@ body{
 .disclaimer{
 	color: grey;
 	text-align: center;
-	margin: 0;
+	margin-bottom: 0px;
+}
+
+.demo{
+	height:25px;
 }
