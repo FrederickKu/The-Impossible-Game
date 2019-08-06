@@ -1,6 +1,6 @@
 # The-Impossible-Game
 
-##Game Description
+## Game Description
 The Impossible Game is a game that is ...... impossible to win.
 
 ##Game Link
