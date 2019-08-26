@@ -15,8 +15,8 @@ I believe a game has a ability to bring people together. In setting out for the 
 Clear all 10 levels to win the game
 
 ## Technology used:
-HTML
-Javascript DOM Manipulation
+- HTML
+- Javascript DOM Manipulation
 
 
 
